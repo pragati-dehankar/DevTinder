@@ -1,3 +1,1 @@
-/node modules
-/pacakge-lock.json
-/pacakge.json
+node_modules/
