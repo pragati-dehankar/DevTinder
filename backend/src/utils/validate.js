@@ -12,7 +12,7 @@ if(!firstName || !lastName){
 }
 
 const validateEditProfileData=(req)=>{
-    const editFieldsAllowed=["firstName","lastName","gender","age","skills"]
+    const editFieldsAllowed=["firstName","lastName","gender","age","skills", "photoUrl", "about"]
 
     const isEditAllowed=Object.keys(req.body).every((field)=>editFieldsAllowed.includes(field))
 

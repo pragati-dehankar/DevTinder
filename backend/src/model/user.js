@@ -49,6 +49,15 @@ const userSchema = new mongoose.Schema(
         }
       },
     },
+    photoUrl: {
+      type: String,
+      default: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
+      validate(val) {
+        if (!validator.isURL(val)) {
+          throw new Error("Invalid photo URL: " + val);
+        }
+      },
+    },
     about: {
       type: String,
     },

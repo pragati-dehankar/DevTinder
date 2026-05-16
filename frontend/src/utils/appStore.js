@@ -1,9 +1,15 @@
 import {configureStore} from '@reduxjs/toolkit'
-import useReducer from './userSlice'
+import userReducer from './userSlice'
+import feedReducer from "./feedSlice"
+import connectionReducer from "./ConnnectionSlice"
+import requestReducer from './requestSlice'
 
 const appStore=configureStore({
     reducer:{
-        user:useReducer
+        user:userReducer,
+        feed:feedReducer,
+        connections:connectionReducer,
+        requests:requestReducer
     }
 })
 
