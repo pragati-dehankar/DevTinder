@@ -19,7 +19,7 @@ const Connections = () => {
   useEffect(() => {
     fetchConnections();
   }, []);
-  if (!connections) return;
+  if (!connections) return null;
 
   if (connections.length === 0) return <h1>Connection not found</h1>;
 
@@ -27,11 +27,12 @@ const Connections = () => {
     <div className="text-center my-10 flex flex-col items-center">
       <h1 className="text-bold text-2xl mb-10">Connections</h1>
       <div className="flex flex-col w-full items-center">
-        {connections.map((connection) => {
+        {connections.map((connection, index) => {
+          if (!connection) return null;
           const { _id, firstName, lastName, photoUrl, about } = connection;
           return (
             <div
-              key={_id}
+              key={_id || index}
               className="flex m-4 p-4 rounded-lg bg-base-300 w-2/3 shadow-xl items-center"
             >
               <div>
