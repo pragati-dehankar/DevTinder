@@ -7,15 +7,18 @@ const requestRouter = require("./routes/request");
 const authRouter = require("./routes/auth");
 const profileRouter = require("./routes/profile");
 const userRouter = require("../src/routes/user");
-const cors=require("cors")
+const cors = require("cors");
+require("dotenv").config();
+require("./utils/cronjob");
 
-app.use(cors({
-  origin:["http://localhost:5173", "http://localhost:5174"],
-  credentials:true
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "http://localhost:5174"],
+    credentials: true,
+  }),
+);
 app.use(express.json());
 app.use(cookieParser());
-
 
 // app.use("/test", (req, res) => {
 //   res.send("Namaste1");
@@ -36,7 +39,7 @@ app.use("/", userRouter);
 connectDB()
   .then(() => {
     console.log("Database connection established!");
-    app.listen(3000, () => {
+    app.listen(process.env.PORT, () => {
       console.log("Server is listening on 3000");
     });
   })

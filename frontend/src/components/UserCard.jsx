@@ -15,7 +15,7 @@ const UserCard = ({ user }) => {
         {},
         { withCredentials: true },
       );
-      dispatch(removeUserFromFeed(userId));
+      dispatch(removeUserFromFeed(userId8));
     } catch (error) {}
   };
 

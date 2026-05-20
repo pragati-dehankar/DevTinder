@@ -3,7 +3,7 @@ const User = require("./backend/src/model/user");
 
 const checkUser = async () => {
   try {
-    await mongoose.connect("mongodb+srv://pragati:DevTinder0987@cluster0.lugouyo.mongodb.net/DevTinder");
+    await mongoose.connect(process.env.DATABASE_URL);
     const user = await User.findOne({ emailId: "pragati@gmail.com" });
     if (user) {
       console.log("User found:", user);
