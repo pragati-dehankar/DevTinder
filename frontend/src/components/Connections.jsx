@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnections } from "../utils/ConnnectionSlice";
+import { Link } from "react-router-dom";
 
 const Connections = () => {
   const connections = useSelector((store) => store.connections);
@@ -39,7 +40,9 @@ const Connections = () => {
                 <img
                   alt="photo"
                   className="w-20 h-20 rounded-full object-cover"
-                  src={photoUrl || "https://www.w3schools.com/howto/img_avatar.png"}
+                  src={
+                    photoUrl || "https://www.w3schools.com/howto/img_avatar.png"
+                  }
                 />
               </div>
               <div className="text-left mx-10">
@@ -47,6 +50,11 @@ const Connections = () => {
                   {firstName + " " + lastName}
                 </h2>
                 <p>{about}</p>
+                <div>
+                  <Link to={"/chat/" + _id}>
+                    <button className="btn btn-primary"> Chat </button>
+                  </Link>
+                </div>
               </div>
             </div>
           );
